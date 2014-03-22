@@ -1,0 +1,39 @@
+html, body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-family: Arial, serif;
+}
+
+.map {
+	width: 100%;
+	height: 90%;
+	overflow: scroll;
+	position: relative;
+}
+
+.map svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.map svg circle {
+	opacity: 0.3;
+}
+
+.controls {
+	height: 10%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.slider {
+	display: inline-block;
+	width: 500px;
+}
+
+.text {
+	display: inline-block;
+	margin-left: 20px;
+}
