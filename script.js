@@ -1,5 +1,6 @@
 $(document).ready(function () {
-	var radius = 20,
+	var RADIUS = 200,
+		SCALE_CONVERSION = 700 / 75,
 		circles = [],
 		shownLines = [],
 		crossStations = [];
@@ -55,11 +56,11 @@ $(document).ready(function () {
 
 	function refreshCircles () {
 		var value = parseInt($slider.slider('value'), 10);
-		$('.controls .text').text(value);
+		$('.controls .text').text(value + 'm');
 
 		for (var key in circles) {
 			for (var i = 0; i < circles[key].length; i++) {
-				circles[key][i].setAttributeNS(null, 'r', value);
+				circles[key][i].setAttributeNS(null, 'r', parseInt(value / SCALE_CONVERSION, 10));
 			}
 		}
 	}
@@ -106,8 +107,8 @@ $(document).ready(function () {
 	}
 
 	$slider.slider({
-		value: radius,
-		max: 400,
+		value: RADIUS,
+		max: 5000,
 		slide: refreshCircles,
 		change: refreshCircles
 	});
