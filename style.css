@@ -37,3 +37,44 @@ html, body {
 	display: inline-block;
 	margin-left: 20px;
 }
+
+.checkboxes {
+	display: inline-block;
+	margin-left: 50px;
+}
+
+.checkboxes div {
+	display: inline-block;
+	padding: 2px 5px;
+}
+
+.checkboxes div input {
+	vertical-align: middle;
+}
+
+.checkboxes div label {
+	padding: 0 5px;
+	font-weight: bold;
+	color: white;
+	vertical-align: middle;
+}
+
+.checkboxes .line1 {
+	background: #D32838;
+}
+
+.checkboxes .line2 {
+	background: #217FBC;
+}
+
+.checkboxes .line3 {
+	background: #0B9957;
+}
+
+.checkboxes .line4 {
+	background: #DB6F22;
+}
+
+.checkboxes .line5 {
+	background: #6B2373;
+}
