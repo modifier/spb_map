@@ -6,7 +6,8 @@ $(document).ready(function () {
 		crossStations = [];
 
 	var $slider = $('.slider'),
-		$checks = $('.checkboxes input[type=checkbox]');
+		$checks = $('.checkboxes input[type=checkbox]')
+		$map = $('.map');
 
 	function initializeCircles () {
 		function createCircle (params) {
@@ -123,6 +124,33 @@ $(document).ready(function () {
 		var checkbox = $(this).find('input');
 		var isChecked = checkbox.prop('checked');
 		checkbox.prop('checked', !isChecked).change();
+	});
+
+	var dragStart = null;
+	$map.mousedown(function (e) {
+		dragStart = {
+			clientX: e.clientX,
+			clientY: e.clientY,
+			scrollTop: $map.scrollTop(),
+			scrollLeft: $map.scrollLeft()
+		};
+
+		$map.addClass('grabbing');
+	});
+
+	$map.mousemove(function (e) {
+		if (dragStart === null) {
+			return;
+		}
+
+		$map.scrollTop(dragStart.scrollTop + dragStart.clientY - e.clientY);
+		$map.scrollLeft(dragStart.scrollLeft + dragStart.clientX - e.clientX);
+	});
+
+	$map.mouseup(function (e) {
+		dragStart = null;
+
+		$map.removeClass('grabbing');
 	});
 
 	initializeCircles();

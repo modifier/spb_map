@@ -8,8 +8,14 @@ html, body {
 .map {
 	width: 100%;
 	height: 90%;
-	overflow: scroll;
+	overflow: hidden;
 	position: relative;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    cursor: grab;
 }
 
 .map svg {
@@ -20,6 +26,10 @@ html, body {
 
 .map svg circle {
 	opacity: 0.3;
+}
+
+.map.grabbing {
+    cursor: grabbing;
 }
 
 .controls {
