@@ -115,7 +115,11 @@ $(document).ready(function () {
 
 	$checks.change(refreshCheckboxes);
 
-	$('.checkboxes > div').click(function () {
+	$('.checkboxes > div').click(function (e) {
+		if ($(e.target).is('input')) {
+			return;
+		}
+
 		var checkbox = $(this).find('input');
 		var isChecked = checkbox.prop('checked');
 		checkbox.prop('checked', !isChecked).change();
